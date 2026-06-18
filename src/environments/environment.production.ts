@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   staging: false,
   name: 'production',
-  apiUrl: 'https://eleazmead.github.io/eleazmead/api',
+  apiUrl: 'https://eleazmead.github.io/api',
   adminPassword: 'REPLACE_ADMIN_PASSWORD',
   sheetsSpreadsheetId: 'REPLACE_SHEETS_SPREADSHEET_ID',
   sheetsApiKey: 'REPLACE_SHEETS_API_KEY',
