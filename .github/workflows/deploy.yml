@@ -44,6 +44,12 @@ jobs:
         if: github.event_name == 'pull_request'
         run: npm run build -- --configuration development
 
+      - name: Prepare environment files (main branch)
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          cp src/environments/environment.ts.example src/environments/environment.ts
+          cp src/environments/environment.staging.ts.example src/environments/environment.staging.ts
+
       - name: Inject secrets
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         env:
