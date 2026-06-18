@@ -2,18 +2,27 @@
   <div class="gallery__container">
     <h2 class="section-heading" appFadeUp>{{ 'gallery.heading' | translate }}</h2>
 
-    <div class="gallery__grid">
-      @for (tile of tiles; track tile) {
-        <button
-          class="gallery__tile"
-          type="button"
-          (click)="open(tile)"
-          [attr.aria-label]="'View photo ' + (tile + 1)"
-        >
-          <div class="gallery__tile-inner"></div>
-        </button>
-      }
-    </div>
+    @if (images().length > 0) {
+      <div class="gallery__grid">
+        @for (filename of images(); track filename; let i = $index) {
+          <button
+            class="gallery__tile"
+            type="button"
+            (click)="open(i)"
+            [attr.aria-label]="'View photo ' + (i + 1)"
+          >
+            <img
+              class="gallery__tile-img"
+              [src]="imageUrl(filename)"
+              [alt]="'Photo ' + (i + 1)"
+              loading="lazy"
+            />
+          </button>
+        }
+      </div>
+    } @else {
+      <p class="gallery__empty">Photos coming soon.</p>
+    }
   </div>
 
   @if (selectedIndex() !== null) {
@@ -28,7 +37,11 @@
         &#215;
       </button>
       <div class="gallery__overlay-content" (click)="stopPropagation($event)">
-        <div class="gallery__overlay-placeholder"></div>
+        <img
+          class="gallery__overlay-img"
+          [src]="imageUrl(images()[selectedIndex()!])"
+          [alt]="'Photo ' + (selectedIndex()! + 1)"
+        />
       </div>
     </div>
   }

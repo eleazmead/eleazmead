@@ -11,14 +11,34 @@
   "rsvp": {
     "heading": "",
     "deadline": "",
-    "name": "",
-    "attendance": "",
     "yes": "",
     "no": "",
-    "guests": "",
     "submit": "",
     "successMessage": "",
-    "submitAnother": ""
+    "goBack": "",
+    "rsvpFor": "",
+    "confirmHeading": "",
+    "confirmBody": "",
+    "submitting": "",
+    "errorMessage": "",
+    "search": {
+      "label": "",
+      "placeholder": "",
+      "buttonLabel": "",
+      "notFound": "",
+      "notFoundContact": "",
+      "searching": ""
+    },
+    "related": {
+      "promptHeading": "",
+      "promptBody": "",
+      "include": "",
+      "exclude": ""
+    },
+    "alreadyRsvped": {
+      "message": "",
+      "notEditable": ""
+    }
   },
   "gallery": {
     "heading": ""

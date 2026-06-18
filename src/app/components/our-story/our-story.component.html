@@ -4,8 +4,17 @@
       <h2 class="section-heading" appFadeUp>{{ 'ourStory.heading' | translate }}</h2>
       <p class="our-story__body">{{ 'ourStory.body' | translate }}</p>
     </div>
-    <div class="our-story__image-wrap">
-      <div class="our-story__image-placeholder" aria-hidden="true"></div>
-    </div>
+    @if (images.length > 0) {
+      <div class="our-story__image-wrap">
+        @for (url of images; track url; let i = $index) {
+          <img
+            class="our-story__image"
+            [src]="url"
+            [alt]="'Our story photo ' + (i + 1)"
+            loading="lazy"
+          />
+        }
+      </div>
+    }
   </div>
 </section>
