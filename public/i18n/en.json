@@ -11,14 +11,35 @@
   "rsvp": {
     "heading": "RSVP",
     "deadline": "Please respond by Month DD, YYYY",
-    "name": "Full Name",
-    "attendance": "Will you attend?",
     "yes": "Joyfully accepts",
     "no": "Regretfully declines",
-    "guests": "Number of guests",
-    "submit": "Send RSVP",
-    "successMessage": "Thank you! We can't wait to celebrate with you.",
-    "submitAnother": "Submit another response"
+    "submit": "Confirm Attendance",
+    "successMessage": "Thank you for your response! We look forward to celebrating this special day with you.",
+    "goBack": "Go back",
+    "rsvpFor": "Responding for",
+    "confirmHeading": "Review your response",
+    "confirmBody": "Please review your selections carefully. Responses cannot be changed after submission.",
+    "submitting": "Sending your response...",
+    "errorMessage": "Something went wrong. Please try again or contact us directly.",
+    "search": {
+      "label": "Enter your name to find your invitation",
+      "placeholder": "e.g. Juan dela Cruz",
+      "buttonLabel": "Find My Invitation",
+      "notFound": "We could not find your name on the guest list. Please double-check your spelling, or",
+      "notFoundContact": "message us on WhatsApp",
+      "searching": "Looking up your invitation..."
+    },
+    "related": {
+      "promptHeading": "We found additional guests in your party",
+      "promptBody": "Would you like to respond on their behalf as well?",
+      "include": "Include",
+      "exclude": "Exclude",
+      "alreadyResponded": "Already responded"
+    },
+    "alreadyRsvped": {
+      "message": "A response has already been submitted for this guest by {initiator} on {date}.",
+      "notEditable": "Attendance responses cannot be changed once submitted. Please contact us directly if you need to make any adjustments."
+    }
   },
   "gallery": {
     "heading": "Our Moments"

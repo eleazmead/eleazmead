@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "generate-gallery": "node scripts/generate-gallery-manifest.mjs",
+    "prestart": "npm run generate-gallery",
     "start": "ng serve",
     "start:staging": "ng serve --configuration staging",
     "start:production": "ng serve --configuration production",
+    "prebuild": "npm run generate-gallery",
     "build": "ng build",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/eleazmead/browser/index.html','dist/eleazmead/browser/404.html')\"",
     "build:staging": "ng build --configuration staging",
     "build:production": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
@@ -22,7 +26,8 @@
     "@angular/platform-browser": "^22.0.0",
     "@angular/router": "^22.0.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@angular/build": "^22.0.2",

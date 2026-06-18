@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { TranslatePipe } from '../../shared/translate.pipe';
 import { FadeUpDirective } from '../../shared/fade-up.directive';
 
@@ -9,9 +10,18 @@ import { FadeUpDirective } from '../../shared/fade-up.directive';
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
-export class GalleryComponent {
-  readonly tiles = Array.from({ length: 9 }, (_, i) => i);
+export class GalleryComponent implements OnInit {
+  private readonly http = inject(HttpClient);
+
+  readonly images = signal<string[]>([]);
   readonly selectedIndex = signal<number | null>(null);
+
+  ngOnInit(): void {
+    this.http.get<string[]>('gallery/manifest.json').subscribe({
+      next: (files) => this.images.set(files),
+      error: () => this.images.set([]),
+    });
+  }
 
   open(index: number): void {
     this.selectedIndex.set(index);
@@ -25,5 +35,9 @@ export class GalleryComponent {
 
   stopPropagation(event: Event): void {
     event.stopPropagation();
+  }
+
+  imageUrl(filename: string): string {
+    return `gallery/${filename}`;
   }
 }

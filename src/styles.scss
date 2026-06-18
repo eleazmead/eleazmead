@@ -52,7 +52,7 @@ img {
   }
 }
 
-// FadeUpDirective target classes — must be global since they're added programmatically
+// FadeUpDirective target classes — global because applied programmatically
 .fade-up {
   opacity: 0;
   transform: translateY(20px);

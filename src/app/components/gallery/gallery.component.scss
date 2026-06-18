@@ -45,7 +45,6 @@
   transition: transform 0.35s ease;
 }
 
-// Lightbox overlay
 .gallery__overlay {
   position: fixed;
   inset: 0;
@@ -94,11 +93,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gallery__overlay {
-    animation: none;
-  }
-
-  .gallery__tile-inner {
-    transition: none;
-  }
+  .gallery__overlay { animation: none; }
+  .gallery__tile-inner { transition: none; }
 }

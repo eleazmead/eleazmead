@@ -12,8 +12,10 @@
 /package-lock.json
 /yarn.lock
 
-# Environment files
+# Environment files — real values stay local, commit only *.example templates
 /.env
+src/environments/environment.ts
+src/environments/environment.staging.ts
 
 # Angular CLI and build artefacts
 /.angular-cli.json
@@ -21,6 +23,9 @@
 
 # TypeScript cache
 *.tsbuildinfo
+
+# Claude Code local session data
+.claude/
 
 # Logs
 npm-debug.log*

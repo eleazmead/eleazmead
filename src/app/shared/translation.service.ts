@@ -1,5 +1,6 @@
 import { Injectable, signal, inject, effect } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 import { APP_CONFIG } from '../config/app.config';
 
 type Locale = (typeof APP_CONFIG.i18n.supportedLocales)[number];
@@ -21,7 +22,7 @@ export class TranslationService {
     this.locale.set(locale);
   }
 
-  // Reads _translations() signal — called from TranslatePipe (pure: false), re-evaluated on each CD cycle
+  // Called from TranslatePipe (pure: false) — re-evaluated each CD cycle
   t(key: string): string {
     const result = key.split('.').reduce((obj: unknown, k: string) => {
       return (obj as Record<string, unknown>)?.[k];
@@ -29,7 +30,7 @@ export class TranslationService {
 
     if (typeof result === 'string' && result.length > 0) return result;
 
-    // Fallback: English translations for empty/missing values in other locales
+    // Fallback to English cache for empty/missing values in other locales
     if (this.locale() !== 'en') {
       const fallback = key.split('.').reduce((obj: unknown, k: string) => {
         return (obj as Record<string, unknown>)?.[k];
