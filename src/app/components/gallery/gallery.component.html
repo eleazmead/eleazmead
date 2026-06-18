@@ -1,0 +1,35 @@
+<section class="gallery" id="gallery">
+  <div class="gallery__container">
+    <h2 class="section-heading" appFadeUp>{{ 'gallery.heading' | translate }}</h2>
+
+    <div class="gallery__grid">
+      @for (tile of tiles; track tile) {
+        <button
+          class="gallery__tile"
+          type="button"
+          (click)="open(tile)"
+          [attr.aria-label]="'View photo ' + (tile + 1)"
+        >
+          <div class="gallery__tile-inner"></div>
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (selectedIndex() !== null) {
+    <div
+      class="gallery__overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Photo lightbox"
+      (click)="close()"
+    >
+      <button class="gallery__overlay-close" type="button" (click)="close()" aria-label="Close">
+        &#215;
+      </button>
+      <div class="gallery__overlay-content" (click)="stopPropagation($event)">
+        <div class="gallery__overlay-placeholder"></div>
+      </div>
+    </div>
+  }
+</section>

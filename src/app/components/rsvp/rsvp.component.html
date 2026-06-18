@@ -1,0 +1,66 @@
+<section class="rsvp" id="rsvp">
+  <div class="rsvp__container">
+    <h2 class="section-heading" appFadeUp>{{ 'rsvp.heading' | translate }}</h2>
+    <p class="rsvp__deadline">{{ 'rsvp.deadline' | translate }}</p>
+
+    @if (submitted()) {
+      <div class="rsvp__success">
+        <p class="rsvp__success-message">{{ 'rsvp.successMessage' | translate }}</p>
+        <button class="rsvp__reset" type="button" (click)="reset()">
+          {{ 'rsvp.submitAnother' | translate }}
+        </button>
+      </div>
+    } @else {
+      <form class="rsvp__form" #rsvpForm="ngForm" (ngSubmit)="onSubmit(rsvpForm)" novalidate>
+
+        <div class="form-field">
+          <label class="form-field__label" for="rsvp-name">{{ 'rsvp.name' | translate }}</label>
+          <input
+            class="form-field__input"
+            id="rsvp-name"
+            type="text"
+            name="name"
+            [(ngModel)]="form.name"
+            required
+            #nameField="ngModel"
+            [class.form-field__input--error]="nameField.invalid && nameField.touched"
+          />
+          @if (nameField.invalid && nameField.touched) {
+            <span class="form-field__error">This field is required.</span>
+          }
+        </div>
+
+        <div class="form-field">
+          <span class="form-field__label">{{ 'rsvp.attendance' | translate }}</span>
+          <div class="form-field__radios">
+            <label class="form-field__radio">
+              <input type="radio" name="attending" [(ngModel)]="form.attending" value="yes" required />
+              <span>{{ 'rsvp.yes' | translate }}</span>
+            </label>
+            <label class="form-field__radio">
+              <input type="radio" name="attending" [(ngModel)]="form.attending" value="no" required />
+              <span>{{ 'rsvp.no' | translate }}</span>
+            </label>
+          </div>
+        </div>
+
+        @if (form.attending === 'yes') {
+          <div class="form-field">
+            <label class="form-field__label" for="rsvp-guests">{{ 'rsvp.guests' | translate }}</label>
+            <input
+              class="form-field__input form-field__input--narrow"
+              id="rsvp-guests"
+              type="number"
+              name="guests"
+              [(ngModel)]="form.guests"
+              min="1"
+              max="10"
+            />
+          </div>
+        }
+
+        <button class="rsvp__submit" type="submit">{{ 'rsvp.submit' | translate }}</button>
+      </form>
+    }
+  </div>
+</section>

@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "headline": "We're getting married",
+    "subheadline": "Join us as we celebrate our love",
+    "cta": "RSVP Now"
+  },
+  "ourStory": {
+    "heading": "Our Story",
+    "body": "Placeholder story text. Replace with the couple's narrative."
+  },
+  "rsvp": {
+    "heading": "RSVP",
+    "deadline": "Please respond by Month DD, YYYY",
+    "name": "Full Name",
+    "attendance": "Will you attend?",
+    "yes": "Joyfully accepts",
+    "no": "Regretfully declines",
+    "guests": "Number of guests",
+    "submit": "Send RSVP",
+    "successMessage": "Thank you! We can't wait to celebrate with you.",
+    "submitAnother": "Submit another response"
+  },
+  "gallery": {
+    "heading": "Our Moments"
+  },
+  "footer": {
+    "message": "Made with love"
+  }
+}

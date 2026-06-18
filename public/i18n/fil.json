@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "headline": "",
+    "subheadline": "",
+    "cta": ""
+  },
+  "ourStory": {
+    "heading": "",
+    "body": ""
+  },
+  "rsvp": {
+    "heading": "",
+    "deadline": "",
+    "name": "",
+    "attendance": "",
+    "yes": "",
+    "no": "",
+    "guests": "",
+    "submit": "",
+    "successMessage": "",
+    "submitAnother": ""
+  },
+  "gallery": {
+    "heading": ""
+  },
+  "footer": {
+    "message": ""
+  }
+}
